@@ -1,6 +1,8 @@
 let db;
 const request = indexedDB.open("UrlHistoryDB", 1);
 
+console.log("MAYANK BHAI SEXYY");
+
 request.onupgradeneeded = function (event) {
   db = event.target.result;
   const objectStore = db.createObjectStore("urls", {
@@ -86,11 +88,11 @@ function getSearchQuery(url) {
     const query = searchParams.get("q");
 
     // If the query exists, return it; otherwise, return the original URL
-     if (query) {
-       return query;
-     } else {
-       return url; // If no query is found, return the original URL
-     }
+    if (query) {
+      return query;
+    } else {
+      return url; // If no query is found, return the original URL
+    }
   } catch (error) {
     console.error("Invalid URL:", error);
     return url; // In case of an error, fallback to the full URL
